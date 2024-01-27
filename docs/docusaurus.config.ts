@@ -18,7 +18,7 @@ const config: Config = {
 
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "ru"],
   },
 
   presets: [
@@ -55,6 +55,10 @@ const config: Config = {
           sidebarId: "thesisSidebar",
           position: "left",
           label: "Thesis",
+        },
+        {
+          type: "localeDropdown",
+          position: "right",
         },
         {
           href: "https://github.com/niqzart/PyloHD",
