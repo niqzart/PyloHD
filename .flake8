@@ -1,0 +1,45 @@
+[flake8]
+# config
+test-func-name-validator-regex = "test_.*"
+
+suppress-dummy-args = true
+
+literal-inline-quotes = "double"
+literal-multiline-quotes = "double"
+literal-docstring-quotes = "double"
+literal-include-name = true
+
+rst-roles = py:mod, py:func, py:data, py:const, py:class, py:meth, py:attr, py:exc, py:obj, py:ref
+
+# black
+max-line-length = 88
+
+# ignores
+extend-ignore =
+  # not required or shadowed by other plugins
+  D I FI TC Q U101 S101 WPS400
+
+  # black
+  WPS348 WPS352 C812 C815
+  # weird
+  PIE803 C101 FNE008 N812 ANN101 ANN102 WPS110 WPS111 VNE001 CM001
+  # broken
+  PIE798 WPS226 WPS354 WPS432 WPS473 WPS507
+  U100  # fails to understand `raise NotImplementedError` and overloading
+  WPS428  # fails to understand overloading
+  WPS601  # fails to same-name class and instance attributes (pydantic & sqlalchemy)
+
+  # don't block features
+  WPS237 WPS305  # f-strings are the best
+  WPS306  # python 2.x is deprecated
+  WPS420 WPS604  # pass is a thing
+  WPS430  # nested functions
+  WPS451  # positional-only arguments
+  WPS501  # try-finally with no except
+  WPS600  # subclassing lowercase builtins
+  WPS602  # @staticmethod
+  WPS605  # methods with no arguments
+
+per-file-ignores =
+  test_*:       TN101 FNE005 SCS108 VNE001 WPS202 WPS211 WPS317 WPS407 WPS425 WPS432 WPS440 WPS437 WPS441 WPS442 WPS507 WPS520 WPS609
+  *conftest.py: TN101 FNE005 SCS108 VNE001 WPS202 WPS211 WPS317 WPS407 WPS425 WPS432 WPS440 WPS437 WPS441 WPS442 WPS507 WPS520 WPS609
