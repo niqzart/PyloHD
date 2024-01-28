@@ -1,0 +1,63 @@
+name: Docs Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - labeled
+      - unlabeled
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build docs
+        run: npm run build
+
+      - name: Upload docusaurus build to artefact
+        uses: actions/upload-artifact@v3
+        with:
+          name: docusaurus-build
+          path: ./docs/build
+          retention-days: 7
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'ci:deploy-docs')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download docusaurus build from artefact
+        uses: actions/download-artifact@v3
+        with:
+          name: docusaurus-build
+          path: ./build
+
+      # https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
