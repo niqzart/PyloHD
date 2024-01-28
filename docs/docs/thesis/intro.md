@@ -1,13 +1,13 @@
 # Intro
 
 ## Topic
-Developing a high-level framework for simplification and systematization of processes in electronic design
+Developing a high-level framework to simplify and systematize learning electronic design
 
 ### Topic summary
 A high-level framework for electronic design in the ecosystem of a popular language (python) with all the bonuses that come from this ecosystem. The framework will support testing programs at high-level, encapsulating shared code into reusable modules, as well as converting high-level code to Verilog for further use on real hardware
 
 ### Goals
-The resulting framework should:
+The main goal for this project stage is to make learning electronic design simpler, more systematized and more accessible. To achieve this the resulting framework should:
 - Be simple and intuitive
 - Allow easy distribution of reusable modules
 - Not isolate the ecosystem by supporting conversion (translation) to Verilog
@@ -17,6 +17,6 @@ The resulting framework should:
 - Have high-quality documentation
 
 ### Viability and relevance
-The current electronics design ecosystem has a fairly significant barrier to entry due to the large differences in principles and approaches compared to high-level programming. Removing this barrier with something completely new and separate won't be useful, since only a few companies will adopt and support a completely new technology stack
+The current electronics design ecosystem has a fairly significant barrier to entry due to the large differences in principles and approaches compared to high-level programming. In addition to that, it is quite difficult to fully learn this discipline on your own, since practice involves the use of specialized tools and complex processes for testing and debugging
 
-In believe this problem can be approached from a different direction. Developing with this framework should develop skills, which won't be useless or temporary — this project will be at first an introductory step in electronics design, and later an independent entity for greater electronic design automation 
+These problems are exactly the ones this framework aims to solve by becoming the first step to learning electronic design with practicing. Moreover, developing with this framework should develop skills, which won't be useless or temporary — this project will be the first step to learning more common and complex tools in electronic design, as well as an independent entity for even greater automation in electronic design
