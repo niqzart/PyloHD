@@ -1,13 +1,13 @@
 # Intro
 
 ## Topic
-Developing a high-level framework to simplify and systematize learning electronic design
+Development of tools for digital circuit design at the register-transfer level
 
 ### Topic summary
 A high-level framework for electronic design in the ecosystem of a popular language (python) with all the bonuses that come from this ecosystem. The framework will support testing programs at high-level, encapsulating shared code into reusable modules, as well as converting high-level code to Verilog for further use on real hardware
 
 ### Goals
-The main goal for this project stage is to make learning electronic design simpler, more systematized and more accessible. To achieve this the resulting framework should:
+Framework should:
 - Be simple and intuitive
 - Allow easy distribution of reusable modules
 - Not isolate the ecosystem by supporting conversion (translation) to Verilog
